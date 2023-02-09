@@ -6,7 +6,9 @@ function validateSchema(schema: joi.ObjectSchema) {
     const { error } = schema.validate(req.body, { abortEarly: false });
 
     if (error) {
-      return res.status(422).send(error.details.map((detail: joi.ValidationErrorItem) => detail.message));
+      throw { type: 'InvalidCpfException', message: 'CPF is not valid.' };
+      // return res.status(422).send(error.details.map((detail: joi.ValidationErrorItem) => detail.message));
+      // Seria possível também termos a opção acima em casos de multiplos erros (bodies com mais campos)
     }
 
     next();
