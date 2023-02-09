@@ -1,5 +1,5 @@
 import { DenylistOfCpfs } from '@prisma/client';
 
-type IAddNewCpftoDenylist = Omit<DenylistOfCpfs, 'id' | 'createdAt'>;
+type IAddNewCpfToDenylist = Omit<DenylistOfCpfs, 'id' | 'createdAt'>;
 
-export { IAddNewCpftoDenylist };
+export { IAddNewCpfToDenylist };
