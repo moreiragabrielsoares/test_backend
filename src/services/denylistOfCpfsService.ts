@@ -8,7 +8,7 @@ async function registerNewDeniedCpf(newDeniedCpf: IAddNewCpfToDenylist) {
     throw { type: 'ExistsCpfException', message: 'This cpf is already denied' };
   }
 
-  await denylistOfCpfsRepository.registerNewDeniedCpf(newDeniedCpf);
+  return await denylistOfCpfsRepository.registerNewDeniedCpf(newDeniedCpf);
 }
 
 async function getDeniedCpfByCpf(deniedCpf: string) {
