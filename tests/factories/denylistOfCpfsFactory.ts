@@ -13,6 +13,27 @@ function createNewValidCpf() {
   return newValidCpf;
 }
 
+function createNewInvalidCpf() {
+  let newInvalidCpf = '';
+
+  const cpfFirstNineDigits = Math.random().toString().slice(2, 11);
+  const correctFirstCheckDigit = calculateFirstCheckDigit(cpfFirstNineDigits);
+
+  let incorrectFirstCheckDigit: number;
+  if (correctFirstCheckDigit === 9) {
+    incorrectFirstCheckDigit = correctFirstCheckDigit - 1;
+  } else {
+    incorrectFirstCheckDigit = correctFirstCheckDigit + 1;
+  }
+
+  const cpfFirstTenDigits = cpfFirstNineDigits + incorrectFirstCheckDigit.toString();
+
+  const correctSecondCheckDigit = calculateSecondCheckDigit(cpfFirstTenDigits).toString();
+  newInvalidCpf = cpfFirstTenDigits + correctSecondCheckDigit;
+
+  return newInvalidCpf;
+}
+
 function calculateFirstCheckDigit(cpfFirstNineDigits: string) {
   const weightedSum = calculateWeightedSum(cpfFirstNineDigits);
   const referenceRemainder = calculateRemainder(weightedSum);
@@ -55,4 +76,4 @@ function calculateCheckDigit(referenceRemainder: number) {
   return checkDigit;
 }
 
-export { createNewValidCpf };
+export { createNewValidCpf, createNewInvalidCpf };
