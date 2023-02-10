@@ -8,8 +8,10 @@
     "dev:watch": "tsx watch src/server.ts",
     "build": "tsup src",
     "start": "node dist/server.js",
-    "dev:test:unit": "dotenv -e .env.test jest -i --testPathPattern=tests/unit",
-    "dev:test:unit:coverage": "dotenv -e .env.test jest -i --coverage --testPathPattern=tests/unit",
+    "dev:test:integration": "dotenv -e .env.test jest -- -i --testPathPattern=tests/integration",
+    "dev:test:integration:coverage": "dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/integration",
+    "dev:test:unit": "dotenv -e .env.test jest -- -i --testPathPattern=tests/unit",
+    "dev:test:unit:coverage": "dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
     "test": "jest"
   },
   "keywords": [],
