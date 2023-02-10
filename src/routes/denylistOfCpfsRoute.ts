@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validateSchema } from '../middlewares/schemaValidatorMiddleware';
-import { validateCpf } from '../middlewares/cpfValidatorMiddleware';
+import { validateCpfParams, validateCpfBody } from '../middlewares/cpfValidatorMiddleware';
 import { addNewCpfToDenylistSchema } from '../schemas/denylistOfCpfsSchemas';
 import * as denylistOfCpfsController from '../controllers/denylistOfCpfsController';
 
@@ -9,13 +9,13 @@ const denylistOfCpfsRouter = Router();
 denylistOfCpfsRouter.post(
   '/cpf',
   validateSchema(addNewCpfToDenylistSchema),
-  validateCpf,
+  validateCpfBody,
   denylistOfCpfsController.registerNewDeniedCpf
 );
 
-denylistOfCpfsRouter.get('/cpf/:cpf', validateCpf, denylistOfCpfsController.getDeniedCpfByCpf);
+denylistOfCpfsRouter.get('/cpf/:cpf', validateCpfParams, denylistOfCpfsController.getDeniedCpfByCpf);
 
-denylistOfCpfsRouter.delete('/cpf/:cpf', validateCpf, denylistOfCpfsController.deleteDeniedCpfbyCpf);
+denylistOfCpfsRouter.delete('/cpf/:cpf', validateCpfParams, denylistOfCpfsController.deleteDeniedCpfbyCpf);
 
 denylistOfCpfsRouter.get('/cpf', denylistOfCpfsController.getAllDeniedCpfByCpf);
 
