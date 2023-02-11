@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:4002
+    env_file:
+      - .env.docker
+    depends_on:
+      - db_postgres
+    volumes:
+      - .:/usr/src
+  db_postgres:
+    image: postgres:14-alpine
+    container_name: db_postgres
+    ports:
+      - 2345:5432
+    env_file:
+      - .env.docker
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
