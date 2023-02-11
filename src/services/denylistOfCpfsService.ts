@@ -31,10 +31,10 @@ async function deleteDeniedCpfbyCpf(deniedCpf: string) {
   await denylistOfCpfsRepository.deleteDeniedCpfbyCpf(deniedCpf);
 }
 
-async function getAllDeniedCpfByCpf() {
+async function getAllDeniedCpfs() {
   const cpfs = await denylistOfCpfsRepository.getAllDeniedCpfs();
 
   return cpfs;
 }
 
-export { registerNewDeniedCpf, getDeniedCpfByCpf, deleteDeniedCpfbyCpf, getAllDeniedCpfByCpf };
+export { registerNewDeniedCpf, getDeniedCpfByCpf, deleteDeniedCpfbyCpf, getAllDeniedCpfs };

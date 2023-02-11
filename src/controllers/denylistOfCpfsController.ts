@@ -26,10 +26,10 @@ async function deleteDeniedCpfbyCpf(req: Request, res: Response) {
   res.status(200).send('Cpf deleted');
 }
 
-async function getAllDeniedCpfByCpf(req: Request, res: Response) {
-  const allDeniedCpfsRegistered = await denylistOfCpfsService.getAllDeniedCpfByCpf();
+async function getAllDeniedCpfs(req: Request, res: Response) {
+  const allDeniedCpfsRegistered = await denylistOfCpfsService.getAllDeniedCpfs();
 
   res.status(200).send(allDeniedCpfsRegistered);
 }
 
-export { registerNewDeniedCpf, getDeniedCpfByCpf, deleteDeniedCpfbyCpf, getAllDeniedCpfByCpf };
+export { registerNewDeniedCpf, getDeniedCpfByCpf, deleteDeniedCpfbyCpf, getAllDeniedCpfs };

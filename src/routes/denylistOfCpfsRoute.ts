@@ -17,6 +17,6 @@ denylistOfCpfsRouter.get('/cpf/:cpf', validateCpfParams, denylistOfCpfsControlle
 
 denylistOfCpfsRouter.delete('/cpf/:cpf', validateCpfParams, denylistOfCpfsController.deleteDeniedCpfbyCpf);
 
-denylistOfCpfsRouter.get('/cpf', denylistOfCpfsController.getAllDeniedCpfByCpf);
+denylistOfCpfsRouter.get('/cpf', denylistOfCpfsController.getAllDeniedCpfs);
 
 export { denylistOfCpfsRouter };

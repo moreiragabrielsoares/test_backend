@@ -106,7 +106,7 @@ describe('denylistOfCpfsService unit tests suite', () => {
       return [];
     });
 
-    const result = await denylistOfCpfsService.getAllDeniedCpfByCpf();
+    const result = await denylistOfCpfsService.getAllDeniedCpfs();
 
     expect(denylistOfCpfsRepository.getAllDeniedCpfs).toBeCalled();
     expect(result).toEqual([]);
