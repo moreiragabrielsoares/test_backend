@@ -13,6 +13,7 @@ function createNewValidCpf() {
   return newValidCpf;
 }
 
+//Esta função irá gerar sempre um CPF com o primeiro dígito de verificação errado
 function createNewInvalidCpf() {
   let newInvalidCpf = '';
 
