@@ -2,11 +2,6 @@
 
 Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
 
-## Pontos que podem ser melhorados
-
-- Refatoração para ser totalmente orientado a objetos seguindo princípios SOLID
-- Refatoração para se adequar a uma arquitetura de microsserviços
-
 ## Tecnologias Utilizadas
 
 - [TypeScript](https://www.typescriptlang.org/)
@@ -17,6 +12,7 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
 - [PostgreSQL](https://www.postgresql.org/)
 - [Joi](https://joi.dev/)
 - [Jest](https://jestjs.io/)
+- [Pino](https://getpino.io/#/)
 
 ## Rodando e Testando a Aplicação (Docker)
 
@@ -26,7 +22,7 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
   $ docker-compose up
   ```
 
-  Obs: Irá aparecer a mensagem "Server listening on port: 4002" no terminal. Mas vale reforçar que esta porta 4002 é a porta do container, no localhost a aplicação está disponível na porta 5000.
+  Obs: Irá aparecer a mensagem "Server listening on port: 4002" no terminal. Mas vale reforçar que essa porta 4002 é a porta do container, no localhost a aplicação está disponível na porta 5000.
 
 - Para rodar os testes automatizados de integração com coverage, rode o comando abaixo na pasta raiz do projeto
 
@@ -91,7 +87,7 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
 
 ## Features
 
-- Adicionar CPF na lista
+- Registrar CPF na lista
 - Consultar se CPF está na lista
 - Remover CPF da lista
 - Consultar todos os CPFs da lista
@@ -108,7 +104,7 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
   }
   ```
 
-  - O valor do CPF será validado conforme explicação deste [algoritmo](https://www.macoratti.net/alg_cpf.htm#:~:text=O), além de também serem considerados inválidos os casos de dígitos repetidos ("11111111111", "22222222222", ... ). Se o seu valor não passar nesta validação ou se o body enviado estiver com o formato errado, será retornado status 422 e o body abaixo:
+  - O valor do CPF será validado conforme explicação deste [algoritmo](https://www.macoratti.net/alg_cpf.htm#:~:text=O), além de também serem considerados inválidos os casos de dígitos repetidos ("11111111111", "22222222222", ... ). Se o seu valor não passar nessa validação ou se o body enviado estiver em um formato inválido, será retornado status 422 e o body abaixo:
     ```yaml
     {
       "type": "InvalidCpfException",
@@ -132,9 +128,9 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
 
 <br/>
 
-- **GET** `/cpf/:cpf` - Retorna o CPF restrito (se registrado)
+- **GET** `/cpf/:cpf` - Retorna o CPF restrito (se registrado). Params :cpf -> Exemplo: '85584079081' (11 dígitos numéricos)
 
-  - Se o CPF enviado estiver com o formato errado ou for inválido conforme regra explicitada, será retornado status 422 e o body abaixo:
+  - Se o CPF enviado estiver com o formato inválido ou não for um CPF válido conforme regra de validação, será retornado status 422 e o body abaixo:
     ```yaml
     {
       "type": "InvalidCpfException",
@@ -159,9 +155,9 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
 
   <br/>
 
-- **DELETE** `/cpf/:cpf` - Deleta um CPF da lista restrita (se registrado)
+- **DELETE** `/cpf/:cpf` - Deleta um CPF da lista restrita (se registrado). Params :cpf -> Exemplo: '85584079081' (11 dígitos numéricos)
 
-  - Se o CPF enviado estiver com o formato errado ou for inválido conforme regra explicitada, será retornado status 422 e o body abaixo:
+  - Se o CPF enviado estiver com o formato inválido ou não for um CPF válido conforme regra de validação, será retornado status 422 e o body abaixo:
     ```yaml
     {
       "type": "InvalidCpfException",
@@ -180,7 +176,7 @@ Este projeto constitui uma API para cadastro de CPFs em uma lista bloqueada.
 
   <br/>
 
-- **GET** `/cpf` - Retorna todos os CPF da lista restrita
+- **GET** `/cpf` - Retorna todos os CPFs da lista restrita
 
   Exemplo de retorno:
 
