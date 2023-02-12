@@ -1,0 +1,88 @@
+{
+    "info": {
+        "name": "test_maxmilhas",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "add new cpf to denylist",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:5000/cpf",
+                    "path": [
+                        "cpf"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"cpf\": \"50943536081\"\n}"
+                }
+            }
+        },
+        {
+            "name": "check cpf in denylist",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5000/cpf/50943536081",
+                    "path": [
+                        "cpf",
+                        "50943536081"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000"
+                }
+            }
+        },
+        {
+            "name": "find all cpfs in denylist",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5000/cpf",
+                    "path": [
+                        "cpf"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000"
+                }
+            }
+        },
+        {
+            "name": "remove cpf from denylist",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:5000/cpf/55478525031",
+                    "path": [
+                        "cpf",
+                        "55478525031"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000"
+                }
+            }
+        }
+    ]
+}
