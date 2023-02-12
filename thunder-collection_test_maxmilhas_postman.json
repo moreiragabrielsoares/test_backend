@@ -71,10 +71,10 @@
             "request": {
                 "method": "DELETE",
                 "url": {
-                    "raw": "http://localhost:5000/cpf/55478525031",
+                    "raw": "http://localhost:5000/cpf/50943536081",
                     "path": [
                         "cpf",
-                        "55478525031"
+                        "50943536081"
                     ],
                     "protocol": "http",
                     "host": [

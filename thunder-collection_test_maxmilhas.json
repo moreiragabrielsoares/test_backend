@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "test_maxmilhas",
-    "dateExported": "2023-02-12T11:28:38.905Z",
+    "dateExported": "2023-02-12T18:17:38.265Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -57,11 +57,11 @@
             "colId": "31094c3a-fc67-4309-8ff7-eb2316c4a29a",
             "containerId": "",
             "name": "remove cpf from denylist",
-            "url": "http://localhost:5000/cpf/55478525031",
+            "url": "http://localhost:5000/cpf/50943536081",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2023-02-09T18:54:30.598Z",
-            "modified": "2023-02-11T15:10:26.462Z",
+            "modified": "2023-02-12T14:08:36.453Z",
             "headers": [],
             "params": [],
             "tests": []
